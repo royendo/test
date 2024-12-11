@@ -1,0 +1,64 @@
+# Metrics view YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/dashboards
+# This file was generated using AI.
+
+version: 1
+type: metrics_view
+
+display_name: Revenue Model Metrics
+model: Revenue_Downloads_Union
+timeseries: datetime
+
+dimensions:
+  - name: Advertiser
+    display_name: Advertiser
+    column: Advertiser
+  - column: Publisher
+    name: Publisher
+    display_name: Publisher
+    description: DAI_PUBLISHER
+  - name: Sales Channel Type
+    display_name: Sales Channel Type
+    column: Sales Channel Type
+  - name: Category
+    display_name: Category
+    column: Category
+  - name: Show
+    display_name: Show
+    column: Show
+  - name: Metrics
+    display_name: Metrics
+    column: Metrics
+  - name: Advertiser Domain
+    display_name: Advertiser Domain
+    column: Advertiser Domain
+  - name: Zone Position
+    display_name: Zone Position
+    column: Zone Position
+  - column: DOWNLOAD_TYPE
+    name: DOWNLOAD_TYPE
+    label: Download Type
+
+measures:
+  - name: total_revenue_measure
+    display_name: Total Revenue
+    expression: SUM(Revenue)
+    description: The total revenue generated across all records.
+    format_preset: currency_usd
+
+  - name: Min Guarnatee Per Month
+    display_name: Min Guarnatee Per Month
+    expression: sum(distinct(Min_Guarantee))
+    description: Min Guarnatee Per Month
+    format_preset: currency_usd
+
+  - name: average_percent_to_goal_measure
+    display_name: Average Percent to Goal
+    expression: AVG(percent_to_goal)
+    description: The average percentage to goal across all records.
+    format_preset: percentage
+  - expression: SUM(Downloads)
+    name: Total Downloads
+    label: Total Downloads
+    format_preset: humanize
+    valid_percent_of_total: true

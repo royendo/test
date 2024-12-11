@@ -1,0 +1,10 @@
+# Explore YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/explore-dashboards
+
+type: explore
+
+title: "NEW Inventory Explore dashboard"
+metrics_view: INVENTORY_model_metrics
+
+dimensions: '*'
+measures: '*'

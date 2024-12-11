@@ -1,0 +1,7 @@
+# Source YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/sources
+
+type: source
+
+connector: "duckdb"
+sql: "select * EXCLUDE (Date), CAST(STRPTIME(REPLACE(CAST(Date AS VARCHAR), '0024', '2024'), '%Y-%d-%m') AS DATE) as datetime from read_csv('gs://podcastone-poc/podcastone-poc/DOWNLOADS.csv', auto_detect=true, ignore_errors=1, header=true)"

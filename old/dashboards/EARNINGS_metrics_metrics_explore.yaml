@@ -1,0 +1,14 @@
+# Explore YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/explore-dashboards
+
+type: explore
+
+title: "OLD Earnings Metrics Analysis dashboard"
+metrics_view: EARNINGS_metrics_metrics
+
+dimensions: '*'
+measures: '*'
+
+defaults:
+  time_range: P3M
+  comparison_mode: time

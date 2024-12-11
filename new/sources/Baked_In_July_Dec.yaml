@@ -1,0 +1,7 @@
+# Source YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/sources
+
+type: source
+
+connector: "duckdb"
+sql: "select * from read_csv('gs://podcastone-poc/podcastone-poc/BNB - BAKED In - 7_1 - 12_28.csv', auto_detect=true, ignore_errors=1, header=true)"

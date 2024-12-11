@@ -1,0 +1,32 @@
+# Component YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/components
+
+type: component
+data:
+  sql: |
+    SELECT * FROM JOINED_DOWNLOADS_AND_IMPRESSIONS
+vega_lite: |
+  
+  {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A line graph of downloads vs Date.",
+    "data": { "name": "table" },
+    "mark": "line",
+    "title": {
+      "text": "Downloads Over Time",
+      "fontSize": 18,  
+      "anchor": "start"
+    },
+    "encoding": {
+      "x": {
+        "field": "date",
+        "type": "temporal",
+        "title": "Date"
+      },
+      "y": {
+        "field": "Downloads",
+        "type": "quantitative",
+        "title": "Downloads"
+      }
+    }
+  }

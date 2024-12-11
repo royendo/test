@@ -1,0 +1,29 @@
+# Metrics view YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/dashboards
+# This file was generated using AI.
+
+version: 1
+type: metrics_view
+
+title: Metrics for Joined Downloads and Impressions
+model: JOINED_DOWNLOADS_AND_IMPRESSIONS
+timeseries: date
+smallest_time_grain: week
+
+dimensions:
+  - label: Title
+    column: Episode
+
+
+measures:
+  - name: total_downloads_measure
+    label: Total Downloads
+    expression: SUM(Downloads)
+    description: The total number of downloads across all episodes and programs.
+    format_preset: humanize
+  - name: total_impressions_measure
+    label: Total Impressions
+    expression: SUM(Impressions)
+    description: The total number of impressions across all episodes and programs.
+    format_preset: humanize
+

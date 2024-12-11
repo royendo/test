@@ -1,0 +1,37 @@
+# Metrics view YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/dashboards
+# This file was generated using AI.
+
+version: 1
+type: metrics_view
+
+title: New Earnings Metrics Analysis
+model: NEW_EARNINGS_metrics
+timeseries: date
+
+smallest_time_grain: month
+
+
+dimensions:
+  - label: Earnings Type
+    column: earning_type
+
+measures:
+  - name: total_sales_measure
+    label: Total Sales
+    expression: SUM(sales)
+    description: The total sum of sales across all records.
+    format_preset: currency_usd
+    
+  - name: Goal
+    label: Goal
+    expression: 225000
+    description: The goal
+    format_preset: currency_usd
+
+  - name: "% to Goal"
+    label: "% to Goal"
+ #   expression: (SUM(BNB_SALES)+SUM(PROGRAMMATIC_SALES)+SUM(DIRECT_SALES)) / 225000 
+    expression: sum(sales) / 225000
+    description: The % to Goal
+    format_preset: percentage

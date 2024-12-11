@@ -1,0 +1,37 @@
+# Component YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/components
+
+type: component
+data:
+  sql: |
+    SELECT * FROM downloads_imp_by_month
+vega_lite: |
+  
+  {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A bar chart showing total downloads for November.",
+    "data": { "name": "table" },
+    "transform": [
+      {
+        "filter": "datum.month == '2024-11-01'"
+      }
+    ],
+    "mark": {
+    "type": "text",
+    "fontSize": 50,
+    "align": "center",
+    "baseline": "middle"
+      },
+    "encoding": {
+     "text": {
+      "field": "total_impressions",
+      "type": "quantitative",
+      "format": ","
+    },
+    "color": { "value": "darkblue" }, "fontSize": { "value": 32 }
+  },
+  "title": {
+    "text": "Total Reachg: Nov.",
+    "fontSize": 32
+    }
+  }

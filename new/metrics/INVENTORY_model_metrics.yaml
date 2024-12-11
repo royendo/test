@@ -1,0 +1,47 @@
+# Metrics view YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/dashboards
+# This file was generated using AI.
+
+version: 1
+type: metrics_view 
+
+display_name: Inventory Model Metrics
+model: INVENTORY_model
+timeseries: datetime
+
+dimensions:
+  - name: Publisher
+    display_name: Publisher
+    column: Publisher
+  - name: Zone Position
+    display_name: Zone Position
+    column: Zone Position
+  - name: Sales Channel Type
+    display_name: Sales Channel Type
+    column: Sales Channel Type
+  - name: Advertiser Domain
+    display_name: Advertiser Domain
+    column: Advertiser Domain
+
+measures:
+
+  - name: total_impressions
+    display_name: Total Impressions 
+    expression: SUM("Delivered Impressions")
+    description: The Total Impressions
+    format_preset: humanize
+
+  - name: max_inventory_measure
+    display_name: Inventory
+    expression: MAX(Inventory)
+    description: The minimum inventory available at any given time.
+    format_preset: humanize
+    
+  - name: fill_rate
+    display_name: Fill Rate
+    expression: total_impressions / max_inventory_measure
+    requires: [total_impressions, max_inventory_measure]
+    description: Fill Rate 
+    format_preset: percentage
+
+smallest_time_grain: month

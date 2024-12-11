@@ -1,0 +1,47 @@
+# Component YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/components
+
+type: component
+data:
+  sql: |
+    SELECT * FROM JOINED_DOWNLOADS_AND_IMPRESSIONS where episode is not null
+vega_lite: |
+  
+  {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Bubble plot of Program Name per Downloads per Date.",
+    "data": { "name": "table" },
+    "mark": "circle",
+    "title": {
+      "text": "Ideas",
+      "fontSize": 18,  
+      "anchor": "start"
+    },
+    "encoding": {
+      "x": {
+        "field": "date",
+        "type": "temporal",
+        "title": "Date"
+      },
+      "y": {
+        "field": "Downloads",
+        "type": "quantitative",
+        "title": "Downloads"
+      },
+      "size": {
+        "field": "Downloads",
+        "type": "quantitative",
+        "title": "Size by Downloads"
+      },
+      "color": {
+        "field": "Program Name",
+        "type": "nominal",
+        "title": "Program Name"
+      },
+      "tooltip": [
+        {"field": "Program Name", "type": "nominal", "title": "Program Name"},
+        {"field": "date", "type": "temporal", "title": "Date"},
+        {"field": "Downloads", "type": "quantitative", "title": "Downloads"}
+      ]
+    }
+  }

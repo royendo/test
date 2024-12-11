@@ -1,0 +1,14 @@
+# Explore YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/explore-dashboards
+
+type: explore
+
+title: "OLD Downloads and Reach Dashboard"
+metrics_view: JOINED_DOWNLOADS_AND_IMPRESSIONS_metrics
+
+dimensions: '*'
+measures: '*'
+
+defaults:
+  time_range: P3M
+  comparison_mode: time
