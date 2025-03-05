@@ -1,0 +1,81 @@
+type: canvas
+title: "Canvas Dashboard"
+items:
+  - component:
+      markdown:
+        title: ""
+        description: ""
+        content: |+
+          **_and we're back!_**
+          basic markdown
+          ds
+
+    width: 12
+    height: 1
+    x: 0
+    y: 15
+  - component:
+      markdown:
+        title: ""
+        description: ""
+        content: "## Markdown Text"
+        alignment:
+          horizontal: right
+          vertical: bottom
+    height: 1
+    width: 7
+    x: 0
+    y: 0
+  - component:
+      image:
+        url: https://cdn.prod.website-files.com/659ddac460dbacbdc813b204/660b0f85094eb576187342cf_rill_logo_sq_gradient.svg
+        title: a
+    height: 2
+    width: 2
+    x: 2
+    y: 3
+  - component:
+      stacked_bar:
+        metrics_view: advanced_commits___model_metrics_access_policy
+        title: ""
+        description: ""
+        time_range: PT24H
+        color:
+          field: author_name
+          type: nominal
+        x:
+          field: directory_path
+          type: nominal
+        y:
+          field: code_percentage
+          type: quantitative
+    height: 8
+    width: 12
+    x: 0
+    y: 7
+  - component:
+      table:
+        metrics_view: advanced_commits___model_metrics_access_policy
+        measures:
+          - total_line_changes
+        time_range: P3M
+        comparison_range: ""
+        row_dimensions:
+          - author_name
+        col_dimensions:
+          - directory_path
+    height: 6
+    width: 12
+    x: 0
+    y: 12
+  - component:
+      kpi:
+        metrics_view: advanced_commits___model_metrics_access_policy
+        measure: total_line_changes
+        time_range: PT24H
+        sparkline: true
+        comparison_range: error
+    height: 5
+    width: 8
+    x: 4
+    y: 1

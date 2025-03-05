@@ -1,0 +1,35 @@
+type: canvas
+title: "Canvas Dashboard"
+items:
+  - component:
+      stacked_bar:
+        metrics_view: uk_price_paid_metrics
+        title: ""
+        description: ""
+        time_range: PT24H
+        color:
+          field: district
+          type: nominal
+        vl_config: null
+        x:
+          field: county
+          type: nominal
+        y:
+          field: total_transactions
+          type: quantitative
+    height: 8
+    width: 12
+    x: 0
+    y: 1
+  - component:
+      markdown:
+        title: ""
+        description: ""
+        content: "# ClickHouse and UK Price Dataset"
+        alignment:
+          horizontal: right
+          vertical: top
+    height: 1
+    width: 12
+    x: 0
+    y: 0

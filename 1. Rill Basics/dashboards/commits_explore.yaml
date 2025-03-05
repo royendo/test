@@ -1,0 +1,13 @@
+# Explore YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/explore-dashboards
+
+type: explore
+
+title: "Rill Basics Dashboard"
+metrics_view: commits_metrics
+
+dimensions: '*'
+measures: '*'
+
+security:
+  access: "'{{ .user.domain }}' == 'rilldata.com'"
